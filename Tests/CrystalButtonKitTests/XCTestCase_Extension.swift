@@ -38,9 +38,10 @@ public extension XCTestCase {
         file: StaticString = #file,
         testName: String = #function,
         line: UInt = #line,
+        sizes: [ContentSizeCategory] = ContentSizeCategory.allCases,
         @ViewBuilder content: () -> Content
     ) where Content: View {
-        for size in ContentSizeCategory.allCases {
+        for size in sizes {
             assertSnapshot(
                 matching: content().environment(\.sizeCategory, size),
                 as: .image,
@@ -50,11 +51,32 @@ public extension XCTestCase {
             )
         }
     }
+
+    // TODO: Document
+    func captureSampledDynamicSizeSnapshots<Content>(
+        file: StaticString = #file,
+        testName: String = #function,
+        line: UInt = #line,
+        @ViewBuilder content: () -> Content
+    ) where Content: View {
+        captureDynamicSizeSnapshots(
+            file: file,
+            testName: testName,
+            line: line,
+            sizes: [
+                .extraSmall,
+                .medium,
+                .extraExtraExtraLarge
+            ],
+            content: content
+        )
+    }
 }
 
 internal extension XCTestCase {
     var mockTitle: String { "Marty" }
     var mockSubtitle: String { "McFly" }
+    var sfSymbolName: String { "gearshape.fill" }
 
     var mockCustomIcon: some View {
         Text("M")
