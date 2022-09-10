@@ -208,7 +208,7 @@ CrystalButtonKit supports Swift Package Manager. To use it the following to your
 
 ```
 dependencies: [
-    .package(name: "CUIExpandableButton", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "0.1.0")
+    .package(name: "CUIExpandableButton", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "0.15.0")
 ],
 ```
 
