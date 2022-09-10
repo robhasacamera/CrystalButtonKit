@@ -1,5 +1,5 @@
 //
-// CUIExpandableButton
+// CrystalButtonKit
 //
 // MIT License
 //
@@ -24,10 +24,35 @@
 // SOFTWARE.
 //
 
-import CoreGraphics
+import CUIPreviewKit
+import SwiftUI
 
-extension CGFloat {
-    static let standardSpacing: CGFloat = 8
-    static let menuCornerRadius: CGFloat = 10
-    static let icon: CGFloat = 44
+public struct SFSymbolIcon: View { var iconName: String
+    public var body: some View {
+        Image(systemName: iconName)
+            .renderingMode(.template)
+            .font(.title2)
+    }
+}
+
+struct SFSymbolIcon_Previews: PreviewProvider {
+    static var color: Color {
+        #if os(iOS)
+        Color(.systemBackground)
+        #else
+        Color(.white)
+        #endif
+    }
+
+    static var previews: some View {
+        CUICenteredPreview {
+            VStack {
+                SFSymbolIcon(iconName: "rectangle.and.pencil.and.ellipsis")
+                    .background(color)
+                SFSymbolIcon(iconName: "gearshape.fill")
+                    .foregroundColor(.yellow)
+                    .background(color)
+            }
+        }
+    }
 }

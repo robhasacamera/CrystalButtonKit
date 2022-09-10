@@ -1,5 +1,5 @@
 //
-// CUIExpandableButton
+// CrystalButtonKit
 //
 // MIT License
 //
@@ -26,10 +26,8 @@
 
 import SwiftUI
 
-#if os(iOS)
-extension View {
-    var viewController: UIViewController {
-        return UIHostingController(rootView: self)
-    }
+/// Base protocol for Views in Crystal UI.
+public protocol CUIView: View {
+    /// An action is a closure with no return type
+    typealias Action = () -> Void
 }
-#endif

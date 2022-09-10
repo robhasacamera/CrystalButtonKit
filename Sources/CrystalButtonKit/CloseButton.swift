@@ -1,5 +1,5 @@
 //
-// CUIExpandableButton
+// CrystalButtonKit
 //
 // MIT License
 //
@@ -27,31 +27,28 @@
 import CUIPreviewKit
 import SwiftUI
 
-public struct SFSymbolIcon: View { var iconName: String
-    public var body: some View {
-        Image(systemName: iconName)
-            .renderingMode(.template)
-            .font(.title2)
+struct CloseButton: CUIView {
+    @ScaledMetric(relativeTo: .title)
+    var size: CGFloat = .icon
+    let action: Action
+
+    var body: some View {
+        Button(action: action) {
+            Image(systemName: "xmark")
+                .font(.headline)
+                .frame(width: size, height: size)
+        }
+        .buttonStyle(.plain)
     }
 }
 
-struct SFSymbolIcon_Previews: PreviewProvider {
-    static var color: Color {
-        #if os(iOS)
-        Color(.systemBackground)
-        #else
-        Color(.white)
-        #endif
-    }
-
+struct CloseButton_Previews: PreviewProvider {
     static var previews: some View {
         CUICenteredPreview {
             VStack {
-                SFSymbolIcon(iconName: "rectangle.and.pencil.and.ellipsis")
-                    .background(color)
-                SFSymbolIcon(iconName: "gearshape.fill")
+                CloseButton(action: {})
+                CloseButton(action: {})
                     .foregroundColor(.yellow)
-                    .background(color)
             }
         }
     }

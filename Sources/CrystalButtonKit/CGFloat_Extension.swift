@@ -1,5 +1,5 @@
 //
-// CUIExpandableButton
+// CrystalButtonKit
 //
 // MIT License
 //
@@ -24,10 +24,10 @@
 // SOFTWARE.
 //
 
-import SwiftUI
+import CoreGraphics
 
-/// Base protocol for Views in Crystal UI.
-public protocol CUIView: View {
-    /// An action is a closure with no return type
-    typealias Action = () -> Void
+extension CGFloat {
+    static let standardSpacing: CGFloat = 8
+    static let menuCornerRadius: CGFloat = 10
+    static let icon: CGFloat = 44
 }

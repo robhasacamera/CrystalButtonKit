@@ -1,5 +1,5 @@
 //
-// CUIExpandableButton
+// CrystalButtonKit
 //
 // MIT License
 //
@@ -24,7 +24,7 @@
 // SOFTWARE.
 //
 
-@testable import CUIExpandableButton
+@testable import CrystalButtonKit
 import SnapshotTesting
 import SwiftUI
 import XCTest

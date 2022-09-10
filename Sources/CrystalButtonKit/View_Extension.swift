@@ -1,5 +1,5 @@
 //
-// CUIExpandableButton
+// CrystalButtonKit
 //
 // MIT License
 //
@@ -24,32 +24,36 @@
 // SOFTWARE.
 //
 
-import CUIPreviewKit
 import SwiftUI
 
-struct CloseButton: CUIView {
-    @ScaledMetric(relativeTo: .title)
-    var size: CGFloat = .icon
-    let action: Action
-
-    var body: some View {
-        Button(action: action) {
-            Image(systemName: "xmark")
-                .font(.headline)
-                .frame(width: size, height: size)
+// From: https://www.avanderlee.com/swiftui/conditional-view-modifier/
+extension View {
+    /// Applies the given transform if the given condition evaluates to `true`.
+    /// - Parameters:
+    ///   - condition: The condition to evaluate.
+    ///   - transform: The transform to apply to the source `View`.
+    /// - Returns: Either the original `View` or the modified `View` if the condition is `true`.
+    @ViewBuilder
+    func `if`<Content: View>(
+        _ condition: @autoclosure () -> Bool,
+        transform: (Self) -> Content
+    ) -> some View {
+        if condition() {
+            transform(self)
+        } else {
+            self
         }
-        .buttonStyle(.plain)
     }
-}
 
-struct CloseButton_Previews: PreviewProvider {
-    static var previews: some View {
-        CUICenteredPreview {
-            VStack {
-                CloseButton(action: {})
-                CloseButton(action: {})
-                    .foregroundColor(.yellow)
-            }
+    /// Must use casting when passing in a nil or optional value.
+    ///
+    /// Example:
+    /// ```
+    /// .optionalBackground(optionalColor as Color?)
+    /// ```
+    func optionalBackground<S>(_ style: S?, ignoresSafeAreaEdges edges: Edge.Set = .all) -> some View where S : ShapeStyle {
+        self.if(style != nil) { view in
+            self.background(style!, ignoresSafeAreaEdges: edges)
         }
     }
 }
