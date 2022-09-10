@@ -26,9 +26,10 @@
 
 import SwiftUI
 
-// From: https://www.avanderlee.com/swiftui/conditional-view-modifier/
 extension View {
     /// Applies the given transform if the given condition evaluates to `true`.
+    ///
+    /// From: https://www.avanderlee.com/swiftui/conditional-view-modifier/
     /// - Parameters:
     ///   - condition: The condition to evaluate.
     ///   - transform: The transform to apply to the source `View`.
@@ -51,9 +52,15 @@ extension View {
     /// ```
     /// .optionalBackground(optionalColor as Color?)
     /// ```
-    func optionalBackground<S>(_ style: S?, ignoresSafeAreaEdges edges: Edge.Set = .all) -> some View where S : ShapeStyle {
+    func optionalBackground<S>(_ style: S?, ignoresSafeAreaEdges edges: Edge.Set = .all) -> some View where S: ShapeStyle {
         self.if(style != nil) { view in
-            self.background(style!, ignoresSafeAreaEdges: edges)
+            view.background(style!, ignoresSafeAreaEdges: edges)
         }
+    }
+
+    // Not being used at the moment
+    // TODO: Document and move to CrystalViewKit
+    var hostingController: UIViewController {
+        return UIHostingController(rootView: self)
     }
 }

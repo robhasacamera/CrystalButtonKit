@@ -31,25 +31,6 @@ import XCTest
 
 #if os(iOS)
 final class CUIExpandableButtonTests: XCTestCase {
-    var mockTitle = "Marty"
-    var mockSubtitle = "McFly"
-
-    var mockCustomIcon: some View {
-        Text("M")
-            .font(.title)
-    }
-
-    var mockContent: some View {
-        Text("What's a gigwatt?").padding(.standardSpacing)
-    }
-
-    func mockCustomSizeIcon(width: CGFloat, height: CGFloat) -> some View {
-        RoundedRectangle(cornerRadius: 10.0)
-            .fill(.black) // this is important, otherwise the layout behaves oddly
-            .frame(width: width, height: height)
-            .padding(.standardSpacing)
-    }
-
     override func setUp() async throws {
         try await super.setUp()
 
@@ -64,23 +45,6 @@ final class CUIExpandableButtonTests: XCTestCase {
     }
 
     // MARK: - SF Symbol Tests
-
-    func captureDynamicSizeSnapshots<Content>(
-        file: StaticString = #file,
-        testName: String = #function,
-        line: UInt = #line,
-        @ViewBuilder content: () -> Content
-    ) where Content: View {
-        for size in ContentSizeCategory.allCases {
-            assertSnapshot(
-                matching: content().environment(\.sizeCategory, size),
-                as: .image,
-                file: file,
-                testName: "\(testName).\(size)",
-                line: line
-            )
-        }
-    }
 
     func testButtonWithSFSymbolCollpased() throws {
         // isRecording = true

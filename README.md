@@ -222,6 +222,7 @@ A sample project, `ButtonDemo.xcodeproj`, can be found in the `SampleApp` folder
 2. More test coverage and test types.
 3. Customizations specific for Mac and Catalyst.
 4. Extracting some other useful views into their own packages.
+5. Add tap expansion and allow visually smaller button sizes
 
 ## TODO List
 
