@@ -233,3 +233,7 @@ A sample project, `ButtonDemo.xcodeproj`, can be found in the `SampleApp` folder
   - SFSymbol into CrystalSFKit
   - ChildSizeReader, CloseButton, CUIView, & View_Extension in CrystalViewKit
   - Move CGFloat_Extension into CrystalViewKit or CrystralConstKit 
+6. Get guthub workflows working
+7. Update CUIExpandableButton to point to this repo
+8. Update repo permissions to require pull requests for main branch.
+
