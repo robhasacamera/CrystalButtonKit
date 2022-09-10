@@ -4,13 +4,11 @@ A SwiftUI button that expands to reveal more content.
 
 ![CUIExpandableButton Demo](Assets/demo.gif)
 
-[![package build workflow](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/package.yml/badge.svg)](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/package.yml)
-[![sample app build workflow](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/sample_app.yml/badge.svg)](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/sample_app.yml)
-[![package build workflow](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/test.yml/badge.svg)](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/test.yml)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Frobhasacamera%2FCUIExpandableButton%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/robhasacamera/CUIExpandableButton)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Frobhasacamera%2FCUIExpandableButton%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/robhasacamera/CUIExpandableButton)
+[![package build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/package.yml/badge.svg)](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/package.yml)
+[![sample app build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/sample_app.yml/badge.svg)](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/sample_app.yml)
+[![package build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/test.yml/badge.svg)](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/test.yml)
 
-*CrystalButtonKit is part of the CrystalUI framework (under developement). This framework is working to bring a suite of UI components that utilize [SwiftUI Material](https://developer.apple.com/documentation/swiftui/material) for it's background element.* 
+*CrystalButtonKit is part of the CrystalUI framework (under developement). This framework is working to bring a suite of UI components that utilizes [SwiftUI Material](https://developer.apple.com/documentation/swiftui/material) for it's background element.* 
 
 ## Usage
 
@@ -202,15 +200,15 @@ CUIExpandableButton(
 
 ### Other Feature
 
-It is worth noting that CUIExpandableButton fully supports dynamic type variants, dark mode, and the right to left layout direction.
+It is worth noting that CrystalButtonKit fully supports dynamic type variants, dark mode, and the right to left layout direction.
 
 ## Installation
 
-CUIExpandableButton supports Swift Package Manager. To use it the following to your `Package.swift` file:
+CrystalButtonKit supports Swift Package Manager. To use it the following to your `Package.swift` file:
 
 ```
 dependencies: [
-    .package(name: "CUIExpandableButton", url: "https://github.com/robhasacamera/CUIExpandableButton.git", from: "0.15.1")
+    .package(name: "CUIExpandableButton", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "0.1.0")
 ],
 ```
 
