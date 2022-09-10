@@ -48,10 +48,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolCollpased() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(false),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }.prepForTest
@@ -60,10 +60,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }.prepForTest
@@ -72,10 +72,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolExpandedHiddenIcon() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -88,10 +88,10 @@ final class CUIExpandableButtonTests: XCTestCase {
     // FIXME: Think it's time to remove this test
     func testButtonWithSFSymbolExpandedHiddenTitle() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -101,10 +101,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolExpandedHiddenCloseButton() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -116,10 +116,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolExpandedHiddenSeparator() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -131,10 +131,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolExpandedHiddenHeader() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -145,10 +145,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolAndLongTitleExpandedWithHiddenIconAndCloseButton() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -161,10 +161,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolExpandedWithTitle() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -175,10 +175,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolExpandedWithForegroundColor() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -191,7 +191,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomIconCollapsed() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(expanded: .constant(false)) {
                 mockCustomIcon
             } content: {
@@ -204,7 +204,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomIconExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(expanded: .constant(true)) {
                 mockCustomIcon
             } content: {
@@ -216,7 +216,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomIconExpandedWithHiddenIcon() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -233,7 +233,7 @@ final class CUIExpandableButtonTests: XCTestCase {
     // FIXME: Remove
     func testButtonWithCustomIconExpandedWithHiddenTitle() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -247,7 +247,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomIconExpandedWithHiddenCloseButton() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -263,7 +263,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomIconExpandedWithHiddenSeparator() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -279,7 +279,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomIconExpandedWithHiddenHeader() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -294,7 +294,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomIconAndLongTitleExpandedWithHiddenIconAndCloseButton() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -311,7 +311,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomIconExpandedWithTitle() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -326,7 +326,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomIconExpandedWithForegroundColor() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -341,7 +341,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomTallIconCollapsed() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(false)
             ) {
@@ -355,7 +355,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomTallIconExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -370,7 +370,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomWideIconCollapsed() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(false)
             ) {
@@ -384,7 +384,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomWideIconExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -399,7 +399,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomLargeIconCollapsed() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(false)
             ) {
@@ -413,7 +413,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomLargeIconExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -428,10 +428,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSFIconTitleAndSubtitleExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -443,10 +443,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSFIconAndSubtitleExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -457,7 +457,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomIconTitleAndSubtitleExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -472,7 +472,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomIconAndSubtitleExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -487,7 +487,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithNoIconTitleAndSubtitleExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -503,7 +503,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithNoIconAndSubtitleExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -519,7 +519,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithTitleAndSubtitleDisplayedWhenCollapsed() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(false)
             ) {
@@ -535,7 +535,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithTitleDisplayedWhenCollapsed() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(false)
             ) {
@@ -550,7 +550,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithSubtitleDisplayedWhenCollapsed() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(false)
             ) {
@@ -565,7 +565,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomTitleFont() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -581,7 +581,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomSubTitleFont() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -597,7 +597,7 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomBackgroundColor() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true)
             ) {
@@ -613,10 +613,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithHiddenIconCollapsed() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(false),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -628,10 +628,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithHiddenIconAndTitleSubtitleDisplayed() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(false),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -644,10 +644,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithHiddenBackgroundCollapsed() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(false),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -659,10 +659,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithHiddenBackgroundExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -674,10 +674,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomCornerRadiusCollapsed() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(false),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
@@ -689,10 +689,10 @@ final class CUIExpandableButtonTests: XCTestCase {
 
     func testButtonWithCustomCornerRadiusExpanded() throws {
         // isRecording = true
-        captureDynamicSizeSnapshots {
+        captureSampledDynamicSizeSnapshots {
             CUIExpandableButton(
                 expanded: .constant(true),
-                sfSymbolName: "gearshape.fill"
+                sfSymbolName: sfSymbolName
             ) {
                 mockContent
             }
