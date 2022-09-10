@@ -222,3 +222,14 @@ A sample project, `ButtonDemo.xcodeproj`, can be found in the `SampleApp` folder
 2. More test coverage and test types.
 3. Customizations specific for Mac and Catalyst.
 4. Extracting some other useful views into their own packages.
+
+## TODO List
+
+1. Add Snapshot tests for CUIButton
+2. Update Sample app for new package name
+3. Add CUIButtons to sample app.
+4. Create documention file for overall package
+5. Move utility views, classes and extensions to their own packages
+  - SFSymbol into CrystalSFKit
+  - ChildSizeReader, CloseButton, CUIView, & View_Extension in CrystalViewKit
+  - Move CGFloat_Extension into CrystalViewKit or CrystralConstKit 

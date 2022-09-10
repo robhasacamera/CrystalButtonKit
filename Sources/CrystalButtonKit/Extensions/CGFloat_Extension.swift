@@ -29,5 +29,6 @@ import CoreGraphics
 extension CGFloat {
     static let standardSpacing: CGFloat = 8
     static let menuCornerRadius: CGFloat = 10
+    // TODO: consider naming this to minimum interactive length or something shorter and moving it to it's own lib
     static let icon: CGFloat = 44
 }
