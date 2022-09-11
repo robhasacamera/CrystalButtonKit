@@ -29,7 +29,47 @@ import SwiftUI
 
 /// A control that executes an action when pressed.
 ///
-/// This control can be customized using modifiers defined in ``CUIStylizedControl``.
+/// ``CUIButton``'s main goal is to provide a consistently stylized control that executes an action.
+///
+/// The control can be highly customized using the modifiers found in ``CUIStylizedControl``. There is a deeper discussion of these options in ``CUIExpandableButton``,  though the expanded options do not  apply to ``CUIButton``.
+///
+/// ### Icon options
+///
+/// There are two options available for the buttons icon, a custom icon and a SF
+/// Symbol icon.
+///
+/// The custom option allows any view to be used for the icon. The icon can be any
+/// size, but care should be given to ensure the icon isn't clipped by the rounded
+/// corners of the button in collapsed or expanded more. The minimum size for the
+/// button will be maintained at 44x44. Icons that have non-equal height and width,
+/// will transform the button into a pill shape instead of a circle.
+///
+/// ```
+/// CUIButton {
+///     MyCustomIconView()
+/// } action: {
+///     print("Button was pressed")
+/// }
+/// ```
+///
+/// Using a SF Symbol for the icon is straightforward, simply provide the name of
+/// the symbol to display the icon. This  guarantees a consistent experience for
+/// things like dynamic type and will stay within the bounds of the collapsed
+/// button's background.
+///
+/// ```
+/// CUIButton(sfSymbol: "bell.fill") {
+///     print("Open Notification")
+/// }
+/// ```
+///
+/// ### Other limitations
+///
+/// Below are the items that are not currently supported. Support maybe added in
+/// the future.
+/// - Other button shapes/styles
+/// - Other background style.
+/// - Buttons smaller then 44x44
 public struct CUIButton<Icon>: _CUIStylizedControl where Icon: View {
     public typealias Control = CUIButton<Icon>
 
@@ -58,7 +98,7 @@ public struct CUIButton<Icon>: _CUIStylizedControl where Icon: View {
     }
 }
 
-public extension CUIButton where Icon == SFSymbolIcon {
+public extension CUIButton where Icon == CUISFSymbolIcon {
     /// Creates a stylized button that iniates an action.
     /// - Parameters:
     ///   - sfSymbolName: The name of the SF Symbol to use as the icon.

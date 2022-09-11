@@ -26,6 +26,7 @@
 
 import SwiftUI
 
+/// Provides a common interface for stylized windows.
 public protocol CUIStylizedWindow: CUIStylizedControl where Control == Window {
     associatedtype Window: CUIStylizedWindow
 

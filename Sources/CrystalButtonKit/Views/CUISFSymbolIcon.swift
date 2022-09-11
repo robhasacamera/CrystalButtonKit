@@ -27,7 +27,11 @@
 import CUIPreviewKit
 import SwiftUI
 
-public struct SFSymbolIcon: View { var iconName: String
+// TODO: Make the initializer public
+/// Creates a simple icon the provided SFSymbol.
+public struct CUISFSymbolIcon: View {
+    var iconName: String
+
     public var body: some View {
         Image(systemName: iconName)
             .renderingMode(.template)
@@ -47,9 +51,9 @@ struct SFSymbolIcon_Previews: PreviewProvider {
     static var previews: some View {
         CUICenteredPreview {
             VStack {
-                SFSymbolIcon(iconName: "rectangle.and.pencil.and.ellipsis")
+                CUISFSymbolIcon(iconName: "rectangle.and.pencil.and.ellipsis")
                     .background(color)
-                SFSymbolIcon(iconName: "gearshape.fill")
+                CUISFSymbolIcon(iconName: "gearshape.fill")
                     .foregroundColor(.yellow)
                     .background(color)
             }

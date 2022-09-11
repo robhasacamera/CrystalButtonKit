@@ -14,6 +14,7 @@
 		9A9FA38C288B6E2D00A4BC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9FA38B288B6E2D00A4BC2C /* Assets.xcassets */; };
 		9A9FA38F288B6E2D00A4BC2C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9FA38E288B6E2D00A4BC2C /* Preview Assets.xcassets */; };
 		9AEADB8F28CD610300FB8925 /* CrystalButtonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9AEADB8E28CD610300FB8925 /* CrystalButtonKit */; };
+		9AEADB9128CD786400FB8925 /* CrystalButtonKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 9AEADB9028CD786400FB8925 /* CrystalButtonKit.docc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		9A9FA394288B6E2D00A4BC2C /* ButtonDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ButtonDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9FA39E288B6E2D00A4BC2C /* ButtonDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ButtonDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AEADB8D28CD60AE00FB8925 /* CrystalButtonKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CrystalButtonKit; path = ..; sourceTree = "<group>"; };
+		9AEADB9028CD786400FB8925 /* CrystalButtonKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; name = CrystalButtonKit.docc; path = ../../CrystalButtonKit.docc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				9A9FA389288B6E2A00A4BC2C /* ContentView.swift */,
 				9A9FA38B288B6E2D00A4BC2C /* Assets.xcassets */,
 				9A9FA38D288B6E2D00A4BC2C /* Preview Content */,
+				9AEADB9028CD786400FB8925 /* CrystalButtonKit.docc */,
 			);
 			path = ButtonDemo;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AEADB9128CD786400FB8925 /* CrystalButtonKit.docc in Sources */,
 				9A71B69928B1F0E4007A10FF /* FontPicker.swift in Sources */,
 				9A9FA38A288B6E2A00A4BC2C /* ContentView.swift in Sources */,
 				9A9FA388288B6E2A00A4BC2C /* ButtonDemoApp.swift in Sources */,

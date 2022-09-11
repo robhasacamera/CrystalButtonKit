@@ -26,7 +26,7 @@
 
 import SwiftUI
 
-/// Provides a common interface for stylizing controls
+/// Provides a common interface for stylizing controls, such as buttons.
 public protocol CUIStylizedControl: CUIView {
     associatedtype Control: CUIStylizedControl
 

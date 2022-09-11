@@ -29,7 +29,7 @@ import SwiftUI
 
 /// A control that expands to display additional content and/or initiate an action.
 ///
-/// `CUIExpandableButton`'s main goal is to provide a convenient/floating
+/// ``CUIExpandableButton``'s main goal is to provide a convenient/floating
 /// control that can expand to show additional content.
 ///
 /// Example use cases include:
@@ -40,12 +40,10 @@ import SwiftUI
 /// - A friend icon that expands to show friends to message.
 ///
 /// The secondary goal is to provide a control that provides a consistent style
-/// accross an app. Because the button can be customized and doesn't require
-/// content to display, it can be used as a regular button as well to interact with.
-///
-/// The ``CUIExpandableButton`` is  prestyled  uses the `utlraThinMaterial`
+/// accross an app. ``CUIExpandableButton`` is styled the same as ``CUIButton``, with the exception of extra stylization options provided when expanded. The ``CUIExpandableButton`` is  prestyled  uses the [`ultraThin`](https://developer.apple.com/documentation/swiftui/material/ultrathin) [`Material`](https://developer.apple.com/documentation/swiftui/material/)
 /// as it's background [defined by Apple](https://tinyurl.com/hbzvf74y ).
-/// But provides a suite of customization features.
+///
+/// Similar to ``CUIButton``, ``CUIExpandableButton`` provides a suite of customization options mentioned below.
 ///
 /// ### Icon options
 ///
@@ -120,6 +118,8 @@ import SwiftUI
 /// This includes  ``foregroundColor(_:)`` and  `fontWeight(_:)`. When
 /// using standard modifiers, it's important to use the modifiers specific to ``CUIExpandableButton`` first.
 ///
+/// A full list of customization modifiers can be found in ``CUIStylizedControl`` & ``CUIStylizedWindow``.
+///
 /// *(`fontWeight(_:)` available beginning in iOS 16).*
 ///
 /// ```
@@ -158,6 +158,7 @@ import SwiftUI
 /// ```
 ///
 /// ### Minimum sizes
+///
 /// - When collapsed, the button maintains a minimum size of 44x44pt
 /// - When expanded, if both the icon and close button are show, the
 /// minimum width is 88
@@ -171,11 +172,9 @@ import SwiftUI
 ///
 /// Below are the items that are not currently supported. Support maybe added in
 /// the future.
-/// - Background corner radius customization when expanded
 /// - Other button shapes/styles
-/// - Backgound material other then `utlraThinMaterial`
 /// - Other background style.
-/// - Other placement for expandable content.
+/// - Other placement for header content when expanded..
 public struct CUIExpandableButton<Icon, Content>: CUIStylizedWindow where Icon: View, Content: View {
     @Namespace private var animation
 
@@ -536,7 +535,7 @@ public struct CUIExpandableButton<Icon, Content>: CUIStylizedWindow where Icon: 
 // MARK: - SFSymbol Initializers
 
 // TODO: Add a convienience initializer that doesn't require the icon at all.
-public extension CUIExpandableButton where Icon == SFSymbolIcon {
+public extension CUIExpandableButton where Icon == CUISFSymbolIcon {
     /// Creates an expandable button, using a SF Symbol as the icon.
     /// - Parameters:
     ///   - expanded: Bool binding that tracks the button's expanded state.
@@ -552,7 +551,7 @@ public extension CUIExpandableButton where Icon == SFSymbolIcon {
     ) {
         self.init(
             expanded: expanded,
-            icon: { SFSymbolIcon(iconName: sfSymbolName) },
+            icon: { CUISFSymbolIcon(iconName: sfSymbolName) },
             content: content,
             action: action
         )
