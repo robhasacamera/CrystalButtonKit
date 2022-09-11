@@ -16,7 +16,7 @@ jobs:
     - name: Clean
       run: xcodebuild clean -scheme $SCHEME -destination "$DESTINATION"
       env:
-          SCHEME: CUIExpandableButton
+          SCHEME: CUIButtonKit
           DESTINATION: platform=iOS Simulator,name=iPhone 13 Pro
 
   build:
