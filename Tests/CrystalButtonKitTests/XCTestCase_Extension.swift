@@ -29,12 +29,13 @@ import SnapshotTesting
 import SwiftUI
 import XCTest
 
+#if os(iOS)
 // TODO: Document
 // TODO: Move into a CrystalTestKit
 public extension XCTestCase {
     // TODO: Document
     // TODO: Add a version where you can specific the sizes to snapshot
-    func captureDynamicSizeSnapshots<Content>(
+    func assertDynamicSizeSnapshots<Content>(
         file: StaticString = #file,
         testName: String = #function,
         line: UInt = #line,
@@ -53,13 +54,13 @@ public extension XCTestCase {
     }
 
     // TODO: Document
-    func captureSampledDynamicSizeSnapshots<Content>(
+    func assertSampledDynamicSizeSnapshots<Content>(
         file: StaticString = #file,
         testName: String = #function,
         line: UInt = #line,
         @ViewBuilder content: () -> Content
     ) where Content: View {
-        captureDynamicSizeSnapshots(
+        assertDynamicSizeSnapshots(
             file: file,
             testName: testName,
             line: line,
@@ -95,3 +96,4 @@ internal extension XCTestCase {
             .padding(.standardSpacing)
     }
 }
+#endif
