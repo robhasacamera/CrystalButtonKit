@@ -58,9 +58,11 @@ extension View {
         }
     }
 
-    // Not being used at the moment
-    // TODO: Document and move to CrystalViewKit
-    var hostingController: UIViewController {
-        return UIHostingController(rootView: self)
-    }
+    #if os(iOS)
+        // Not being used at the moment
+        // TODO: Document and move to CrystalViewKit
+        var hostingController: UIViewController {
+            return UIHostingController(rootView: self)
+        }
+    #endif
 }

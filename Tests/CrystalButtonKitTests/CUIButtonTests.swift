@@ -48,7 +48,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithSFSymbol() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton(sfSymbolName: sfSymbolName) {
                 /* action */
             }
@@ -58,7 +58,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolAndTitle() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton(sfSymbolName: sfSymbolName) {
                 /* action */
             }
@@ -69,7 +69,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolAndSubtitle() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton(sfSymbolName: sfSymbolName) {
                 /* action */
             }
@@ -80,7 +80,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolTitleAndSubtitle() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton(sfSymbolName: sfSymbolName) {
                 /* action */
             }
@@ -92,7 +92,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithTitleOnly() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton(title: mockTitle) {
                 /* action */
             }
@@ -102,7 +102,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolAndForegroundColor() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton(sfSymbolName: sfSymbolName) {
                 /* action */
             }
@@ -112,7 +112,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolAndBackgroundColor() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton(sfSymbolName: sfSymbolName) {
                 /* action */
             }
@@ -123,7 +123,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolAndHiddenBackground() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton(sfSymbolName: sfSymbolName) {
                 /* action */
             }
@@ -134,7 +134,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithSFSymbolAndCornerRadius() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton(sfSymbolName: sfSymbolName) {
                 /* action */
             }
@@ -145,7 +145,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithNoIcon() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton(sfSymbolName: sfSymbolName) {
                 /* action */
             }
@@ -156,7 +156,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithCustomIcon() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton{
                 mockCustomIcon
             } action: {
@@ -168,7 +168,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithCustomIconWide() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton{
                 mockCustomSizeIcon(width: .icon * 2, height: .icon)
             } action: {
@@ -180,7 +180,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithCustomIconTall() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton{
                 mockCustomSizeIcon(width: .icon, height: .icon * 2)
             } action: {
@@ -192,7 +192,7 @@ final class CUIButtonTests: XCTestCase {
 
     func testButtonWithCustomIconLarge() throws {
         // isRecording = true
-        captureSampledDynamicSizeSnapshots {
+        assertSampledDynamicSizeSnapshots {
             CUIButton{
                 mockCustomSizeIcon(width: .icon * 2, height: .icon * 2)
             } action: {
