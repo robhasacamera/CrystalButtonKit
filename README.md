@@ -8,14 +8,38 @@ A SwiftUI button that expands to reveal more content.
 [![sample app build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/sample_app.yml/badge.svg)](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/sample_app.yml)
 [![package build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/test.yml/badge.svg)](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/test.yml)
 
-*CrystalButtonKit is part of the CrystalUI framework (under developement). This framework is working to bring a suite of UI components that utilizes [SwiftUI Material](https://developer.apple.com/documentation/swiftui/material) for it's background element.* 
+*CrystalButtonKit is part of the CrystalUI framework (under developement). This framework is working to bring a suite of UI components that utilizes SwiftUI's [Material](https://developer.apple.com/documentation/swiftui/material) for it's background element.* 
 
 ## Usage
 
-To create a simple CUIExpandableButton, you can use an SF Symbol for your icon.
+This package provides 2 button views:
+- `CUIButton` provides a control, that when pressed, executes an action.
+- `CUIExpandableButton` provides a control that expands to reveal hidden content when pressed.
+
+To create a simple `CUIButton`, you can use a SF Symbol for your icon.
 
 ```swift
-import CUIExpandableButton
+import CrystalButtonKit
+import SwiftUI
+
+struct ContentView: View {
+    @State
+    var expanded: Bool = false
+    
+    var body: some View {
+        CUIButton(
+            sfSymbolName: "gearshape.fill"
+        ) {
+            print("button pressed")
+        }
+    }
+}
+```
+
+Similarly, `CUIExpandableButton`, also excepts a SF Symbol for ease of creation.
+
+```swift
+import CrystalButtonKit
 import SwiftUI
 
 struct ContentView: View {
@@ -35,6 +59,8 @@ struct ContentView: View {
 
 ## Customization
 
+The sections below describe customizing buttons in this package. For simplicty sake, we'll use `CUIExpandableButton` for all the examples as most of this applies to `CUIButton` as well. 
+
 ### Icon
 
 If you'd like more control over the look of the button, you can provide a custom icon for the button instead.
@@ -52,7 +78,7 @@ CUIExpandableButton(
 }
 ```
 
-Additionally, you can hide the icon altogether. When hiding the icon, it's a good idea to show a title to prevent an empty button in collapsed state. Though it is possible for the button to empty.
+Additionally, you can hide the icon altogether. When hiding the icon, it's a good idea to show a title to prevent an empty button in collapsed state. Though it is possible for the button to be empty. Buttons provide a conveinence initializer for this purpose.
 
 ```swift
 CUIExpandableButton(
@@ -80,7 +106,7 @@ CUIExpandableButton(
 
 ### Actions
 
-You can add an action that's triggered when the button is expanded or collapsed using the built in controls.
+You can add an action that's triggered when the button is expanded or collapsed using the built in controls. This action is not optional for `CUIButton`.
 
 ```swift
 CUIExpandableButton(
@@ -129,7 +155,7 @@ CUIExpandableButton(
 
 ### Header Only Options
 
-There are additional customization options for customizing the header when the button is expanded. 
+There are additional customization options for customizing the header when the button is expanded. This applies to `CUIExpandableButton` only.
 
 ```swift
 CUIExpandableButton(
@@ -208,7 +234,7 @@ CrystalButtonKit supports Swift Package Manager. To use it the following to your
 
 ```
 dependencies: [
-    .package(name: "CUIExpandableButton", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "0.15.1")
+    .package(name: "CUIExpandableButton", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "1.0.0")
 ],
 ```
 
@@ -223,19 +249,10 @@ A sample project, `ButtonDemo.xcodeproj`, can be found in the `SampleApp` folder
 3. Customizations specific for Mac and Catalyst.
 4. Extracting some other useful views into their own packages.
 5. Add tap expansion and allow visually smaller button sizes
-
-## TODO List
-
-1. ~~Add Snapshot tests for CUIButton~~
-2. ~~Update Sample app for new package name~~
-3. ~~Add CUIButtons to sample app~~
-4. ~~Create documention file for overall package~~
-5. Move utility views, classes and extensions to their own packages
+6. Move utility views, classes and extensions to their own packages:
   - SFSymbol into CrystalSFKit
   - ChildSizeReader, CloseButton, CUIView, & View_Extension in CrystalViewKit
   - Move CGFloat_Extension into CrystalViewKit or CrystralConstKit 
-6. ~~Get github workflows working~~
-7. ~~Update CUIExpandableButton repo to point to this repo~~
-8. Update repo permissions to require pull requests for main branch.
-9. Update Swift Package Repos and List to point to this package instead.
+7. Update repo permissions to require pull requests for main branch.
+8. Update Swift Package Repos and List to point to this package instead.
 
