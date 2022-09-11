@@ -2,11 +2,11 @@
 
 A kit that provides stylized and customizable buttons.
 
-![CUIExpandableButton Demo](Assets/demo.gif)
+![CrystalButtonKit Demo](Assets/demo.gif)
 
-[![package build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/package.yml/badge.svg)](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/package.yml)
-[![sample app build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/sample_app.yml/badge.svg)](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/sample_app.yml)
-[![package build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/test.yml/badge.svg)](https://github.com/robhasacamera/CUIExpandableButton/actions/workflows/test.yml)
+[![package build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/package.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/package.yml)
+[![sample app build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/sample_app.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/sample_app.yml)
+[![package build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/test.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/test.yml)
 
 *CrystalButtonKit is part of the CrystalUI framework (under developement). This framework is working to bring a suite of UI components that utilizes SwiftUI's [Material](https://developer.apple.com/documentation/swiftui/material) for it's background element.* 
 
