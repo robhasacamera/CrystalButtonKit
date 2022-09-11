@@ -16,7 +16,7 @@ jobs:
     - name: Clean
       run: xcodebuild clean -scheme $SCHEME -destination "$DESTINATION"
       env:
-          SCHEME: CUIButtonKit
+          SCHEME: CrystalButtonKit
           DESTINATION: platform=iOS Simulator,name=iPhone 13 Pro
 
   build:
@@ -29,5 +29,5 @@ jobs:
     - name: Clean Build
       run: xcodebuild build -scheme $SCHEME -destination "$DESTINATION"
       env:
-          SCHEME: CUIButtonKit
+          SCHEME: CrystalButtonKit
           DESTINATION: platform=iOS Simulator,name=iPhone 13 Pro
