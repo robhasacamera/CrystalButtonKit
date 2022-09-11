@@ -229,12 +229,13 @@ A sample project, `ButtonDemo.xcodeproj`, can be found in the `SampleApp` folder
 1. ~~Add Snapshot tests for CUIButton~~
 2. ~~Update Sample app for new package name~~
 3. ~~Add CUIButtons to sample app~~
-4. Create documention file for overall package
+4. ~~Create documention file for overall package~~
 5. Move utility views, classes and extensions to their own packages
   - SFSymbol into CrystalSFKit
   - ChildSizeReader, CloseButton, CUIView, & View_Extension in CrystalViewKit
   - Move CGFloat_Extension into CrystalViewKit or CrystralConstKit 
-6. Get github workflows working
-7. Update CUIExpandableButton to point to this repo
+6. ~~Get github workflows working~~
+7. ~~Update CUIExpandableButton repo to point to this repo~~
 8. Update repo permissions to require pull requests for main branch.
+9. Update Swift Package Repos and List to point to this package instead.
 
