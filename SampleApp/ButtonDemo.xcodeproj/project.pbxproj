@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		9A71B69928B1F0E4007A10FF /* FontPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A71B69828B1F0E4007A10FF /* FontPicker.swift */; };
 		9A71B69B28B22A9B007A10FF /* TitledGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A71B69A28B22A9B007A10FF /* TitledGroup.swift */; };
-		9A76EDC2288D21CA00F7C17B /* CUIExpandableButton in Frameworks */ = {isa = PBXBuildFile; productRef = 9A76EDC1288D21CA00F7C17B /* CUIExpandableButton */; };
 		9A9FA388288B6E2A00A4BC2C /* ButtonDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9FA387288B6E2A00A4BC2C /* ButtonDemoApp.swift */; };
 		9A9FA38A288B6E2A00A4BC2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9FA389288B6E2A00A4BC2C /* ContentView.swift */; };
 		9A9FA38C288B6E2D00A4BC2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9FA38B288B6E2D00A4BC2C /* Assets.xcassets */; };
 		9A9FA38F288B6E2D00A4BC2C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A9FA38E288B6E2D00A4BC2C /* Preview Assets.xcassets */; };
+		9AEADB8F28CD610300FB8925 /* CrystalButtonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9AEADB8E28CD610300FB8925 /* CrystalButtonKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 		9A9FA38E288B6E2D00A4BC2C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9A9FA394288B6E2D00A4BC2C /* ButtonDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ButtonDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A9FA39E288B6E2D00A4BC2C /* ButtonDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ButtonDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A9FA3F8288D1EBC00A4BC2C /* .. */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ..; sourceTree = "<group>"; };
+		9AEADB8D28CD60AE00FB8925 /* CrystalButtonKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CrystalButtonKit; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A76EDC2288D21CA00F7C17B /* CUIExpandableButton in Frameworks */,
+				9AEADB8F28CD610300FB8925 /* CrystalButtonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +123,7 @@
 		9A9FA3F7288D1EBC00A4BC2C /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				9A9FA3F8288D1EBC00A4BC2C /* .. */,
+				9AEADB8D28CD60AE00FB8925 /* CrystalButtonKit */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -145,7 +145,7 @@
 			);
 			name = ButtonDemo;
 			packageProductDependencies = (
-				9A76EDC1288D21CA00F7C17B /* CUIExpandableButton */,
+				9AEADB8E28CD610300FB8925 /* CrystalButtonKit */,
 			);
 			productName = ButtonDemo;
 			productReference = 9A9FA384288B6E2A00A4BC2C /* ButtonDemo.app */;
@@ -590,9 +590,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9A76EDC1288D21CA00F7C17B /* CUIExpandableButton */ = {
+		9AEADB8E28CD610300FB8925 /* CrystalButtonKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = CUIExpandableButton;
+			productName = CrystalButtonKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

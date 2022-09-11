@@ -5,7 +5,7 @@
 //  Created by Robert Cole on 8/21/22.
 //
 
-import CUIExpandableButton
+import CrystalButtonKit
 import CUISeparator
 import SwiftUI
 

@@ -24,7 +24,7 @@
 // SOFTWARE.
 //
 
-import CUIExpandableButton
+import CrystalButtonKit
 import SwiftUI
 
 struct FontPicker: View {

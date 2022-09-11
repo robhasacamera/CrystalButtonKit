@@ -24,7 +24,8 @@
 // SOFTWARE.
 //
 
-import CUIExpandableButton
+import CrystalButtonKit
+import CUISeparator
 import SwiftUI
 
 struct ContentView: View {
@@ -46,9 +47,6 @@ struct ContentView: View {
     var toggleBool2: Bool = true
     @State
     var toggleBool3: Bool = true
-
-    @State
-    var showAlert = false
 
     @State
     var sfSymbolName = "gearshape.fill"
@@ -76,7 +74,7 @@ struct ContentView: View {
     var hideHeader = false
 
     @State
-    var hideBackground: Bool = false
+    var hideBackground = false
 
     @State
     var backgroundColor: Color = .clear
@@ -84,58 +82,121 @@ struct ContentView: View {
     @State
     var foregroundColor = Color(uiColor: .label)
 
+    @State
+    var showAlert1 = false
+    @State
+    var showAlert2 = false
+
+    var isTopButtonExpanded: Bool {
+        expanded1 || expanded2 || expanded3
+    }
+
     var body: some View {
         VStack(spacing: 8.0) {
             HStack(alignment: .top) {
-                CUIExpandableButton(
-                    expanded: $expanded1,
-                    sfSymbolName: "pencil"
-                ) {
-                    TextEditor(text: $textFieldString)
-                        .frame(width: 200, height: 100)
-                } action: {
-                    expanded2 = false
-                    expanded3 = false
-                    expanded4 = false
-                }
+                if !isTopButtonExpanded {
+                    VStack(spacing: 8.0) {
+                        Text("CUIButton")
 
-                CUIExpandableButton(
-                    expanded: $expanded2,
-                    sfSymbolName: "gearshape.fill"
-                ) {
-                    VStack {
-                        Toggle("Setting 1", isOn: $toggleBool1)
-                        Toggle("Setting 2", isOn: $toggleBool2)
-                        Toggle("Setting 3", isOn: $toggleBool3)
+                        HStack {
+                            CUIButton(sfSymbolName: "doc.fill.badge.plus") {
+                                showAlert1 = true
+                            }
+                            .alert("New doc button pressed", isPresented: $showAlert1) {
+                                Button("OK", role: .cancel) {}
+                            }
+
+                            CUIButton {
+                                ZStack {
+                                    Circle()
+                                        .foregroundColor(.red)
+                                        .frame(width: 30, height: 30)
+
+                                    Circle()
+                                        .foregroundColor(.white)
+                                        .frame(width: 20, height: 20)
+
+                                    Circle()
+                                        .foregroundColor(.red)
+                                        .frame(width: 10, height: 10)
+                                }
+                            } action: {
+                                showAlert2 = true
+                            }
+                            .alert("Target button pressed", isPresented: $showAlert2) {
+                                Button("OK", role: .cancel) {}
+                            }
+                        }
                     }
-                    .frame(width: 200)
-                    .padding(8)
 
-                } action: {
-                    expanded1 = false
-                    expanded3 = false
-                    expanded4 = false
+                    CUISeparator(weight: .heavy, orientation: .vertical)
                 }
 
-                CUIExpandableButton(
-                    expanded: $expanded3
-                ) {
-                    Image("Background")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 26, height: 26)
-                } content: {
-                    Image("Background")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 100)
-                        .padding(8)
-                } action: {
-                    expanded1 = false
-                    expanded2 = false
-                    expanded4 = false
+                VStack {
+                    if !isTopButtonExpanded {
+                        Text("CUIExpandableButton")
+                    }
+
+                    HStack(alignment: .top) {
+                        CUIExpandableButton(
+                            expanded: $expanded1,
+                            sfSymbolName: "pencil"
+                        ) {
+                            TextEditor(text: $textFieldString)
+                                .frame(width: 200, height: 100)
+                        } action: {
+                            expanded2 = false
+                            expanded3 = false
+                            expanded4 = false
+                        }
+
+                        CUIExpandableButton(
+                            expanded: $expanded2,
+                            sfSymbolName: "gearshape.fill"
+                        ) {
+                            VStack {
+                                Toggle("Setting 1", isOn: $toggleBool1)
+                                Toggle("Setting 2", isOn: $toggleBool2)
+                                Toggle("Setting 3", isOn: $toggleBool3)
+                            }
+                            .frame(width: 200)
+                            .padding(8)
+
+                        } action: {
+                            expanded1 = false
+                            expanded3 = false
+                            expanded4 = false
+                        }
+
+                        CUIExpandableButton(
+                            expanded: $expanded3
+                        ) {
+                            Image("Background")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 26, height: 26)
+                        } content: {
+                            Image("Background")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 100, height: 100)
+                                .padding(8)
+                        } action: {
+                            expanded1 = false
+                            expanded2 = false
+                            expanded4 = false
+                        }
+                    }
                 }
             }
+            .padding(isTopButtonExpanded ? 0.0 : 8.0)
+            .background(
+                RoundedRectangle(cornerRadius: 15)
+                    .foregroundColor(
+                        .white.opacity(isTopButtonExpanded ? 0.0 : 0.4)
+                    )
+            )
+            .frame(height: isTopButtonExpanded ? nil : 100.0)
 
             Spacer()
 
