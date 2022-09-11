@@ -1,6 +1,6 @@
 # CrystalButtonKit
 
-A SwiftUI button that expands to reveal more content.
+A kit that provides stylized and customizable buttons.
 
 ![CUIExpandableButton Demo](Assets/demo.gif)
 
