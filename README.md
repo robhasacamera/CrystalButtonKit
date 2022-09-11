@@ -226,9 +226,9 @@ A sample project, `ButtonDemo.xcodeproj`, can be found in the `SampleApp` folder
 
 ## TODO List
 
-~~1. Add Snapshot tests for CUIButton~~
+1. ~~ Add Snapshot tests for CUIButton~~
 2. Update Sample app for new package name
-3. Add CUIButtons to sample app.
+3. Add CUIButtons to sample app
 4. Create documention file for overall package
 5. Move utility views, classes and extensions to their own packages
   - SFSymbol into CrystalSFKit
