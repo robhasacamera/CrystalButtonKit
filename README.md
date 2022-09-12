@@ -7,6 +7,8 @@ A kit that provides stylized and customizable buttons.
 [![package build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/package.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/package.yml)
 [![sample app build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/sample_app.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/sample_app.yml)
 [![package build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/test.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/test.yml)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Frobhasacamera%2FCrystalButtonKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/robhasacamera/CrystalButtonKit)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Frobhasacamera%2FCrystalButtonKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/robhasacamera/CrystalButtonKit)
 
 *CrystalButtonKit is part of the CrystalUI framework (under developement). This framework is working to bring a suite of UI components that utilizes SwiftUI's [Material](https://developer.apple.com/documentation/swiftui/material) for it's background element.* 
 
@@ -234,13 +236,17 @@ CrystalButtonKit supports Swift Package Manager. To use it the following to your
 
 ```
 dependencies: [
-    .package(name: "CUIExpandableButton", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "1.0.1")
+    .package(name: "CUIExpandableButton", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "1.0.2")
 ],
 ```
 
 ## Sample Project
 
 A sample project, `ButtonDemo.xcodeproj`, can be found in the `SampleApp` folder.
+
+## Documentation
+
+Full documentation is available on the [Swift Package Index](https://swiftpackageindex.com/robhasacamera/CrystalButtonKit/1.0.1/documentation/crystalbuttonkit).
 
 ## Future Plans
 
