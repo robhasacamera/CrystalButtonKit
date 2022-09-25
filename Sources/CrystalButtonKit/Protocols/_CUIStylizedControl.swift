@@ -26,7 +26,8 @@
 
 import SwiftUI
 
-protocol _CUIStylizedControl: CUIStylizedControl {
+/// Internal. Do not use directly.
+public protocol _CUIStylizedControl: CUIStylizedControl {
     associatedtype _Control: CUIStylizedControl
 
     var control: _Control { get set }
