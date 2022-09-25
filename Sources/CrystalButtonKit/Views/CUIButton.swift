@@ -74,7 +74,7 @@ import SwiftUI
 public struct CUIButton<Icon>: _CUIStylizedControl where Icon: View {
     public typealias Control = CUIButton<Icon>
 
-    var control: CUIExpandableButton<Icon, EmptyView>
+    public var control: CUIExpandableButton<Icon, EmptyView>
 
     /// Creates a stylized button that initiates an action.
     /// - Parameters:
