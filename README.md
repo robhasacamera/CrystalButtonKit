@@ -237,11 +237,7 @@ CrystalButtonKit supports Swift Package Manager. To use it the following to your
 
 ```
 dependencies: [
-<<<<<<< Updated upstream
-    .package(name: "CrystalButtonKit", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "1.0.3")
-=======
-    .package(name: "CrystalButtonKit", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "1.0.5")
->>>>>>> Stashed changes
+    .package(name: "CrystalButtonKit", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "1.0.4")
 ],
 ```
 
