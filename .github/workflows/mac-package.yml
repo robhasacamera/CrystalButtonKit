@@ -1,4 +1,4 @@
-name: Package (iOS)
+name: Package (Mac)
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
       run: xcodebuild clean -scheme $SCHEME -destination "$DESTINATION"
       env:
           SCHEME: CrystalButtonKit
-          DESTINATION: platform=iOS Simulator,name=iPhone 13 Pro
+          DESTINATION: platform=macOS
 
   build:
     needs: clean
@@ -30,4 +30,4 @@ jobs:
       run: xcodebuild build -scheme $SCHEME -destination "$DESTINATION"
       env:
           SCHEME: CrystalButtonKit
-          DESTINATION: platform=iOS Simulator,name=iPhone 13 Pro
+          DESTINATION: platform=macOS

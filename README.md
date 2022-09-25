@@ -4,9 +4,10 @@ A kit that provides stylized and customizable buttons.
 
 ![CrystalButtonKit Demo](Assets/demo.gif)
 
-[![package build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/package.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/package.yml)
+[![package build ios workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/package.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/package.yml)
+[![package build mac workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/mac-package.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/mac-package.yml)
 [![sample app build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/sample_app.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/sample_app.yml)
-[![package build workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/test.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/test.yml)
+[![package test workflow](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/test.yml/badge.svg)](https://github.com/robhasacamera/CrystalButtonKit/actions/workflows/test.yml)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Frobhasacamera%2FCrystalButtonKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/robhasacamera/CrystalButtonKit)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Frobhasacamera%2FCrystalButtonKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/robhasacamera/CrystalButtonKit)
 
@@ -236,7 +237,7 @@ CrystalButtonKit supports Swift Package Manager. To use it the following to your
 
 ```
 dependencies: [
-    .package(name: "CUIExpandableButton", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "1.0.2")
+    .package(name: "CrystalButtonKit", url: "https://github.com/robhasacamera/CrystalButtonKit.git", from: "1.0.3")
 ],
 ```
 
