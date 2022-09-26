@@ -15,13 +15,16 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
-            from: "1.9.0"
-        ),
-        .package(
-            name: "CUISeparator",
             url: "https://github.com/robhasacamera/CUISeparator.git",
             from: "0.3.1"
+        ),
+        .package(
+            url: "https://github.com/robhasacamera/CrystalViewUtilities.git",
+            from: "0.0.2"
+        ),
+        .package(
+            url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
+            from: "1.9.0"
         )
     ],
     targets: [
@@ -29,12 +32,16 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "CrystalButtonKit",
-            dependencies: ["CUISeparator"]
+            dependencies: [
+                .product(name: "CrystalViewUtilities", package: "CrystalViewUtilities"),
+                .product(name: "CUISeparator", package: "CUISeparator")
+            ]
         ),
         .testTarget(
             name: "CrystalButtonKitTests",
             dependencies: [
                 "CrystalButtonKit",
+                .product(name: "CrystalViewUtilities", package: "CrystalViewUtilities"),
                 .product(name: "SnapshotTesting", package: "swift-snapshot-testing")
             ],
             exclude: ["__Snapshots__/"]

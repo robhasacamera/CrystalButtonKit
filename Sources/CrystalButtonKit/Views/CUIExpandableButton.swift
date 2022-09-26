@@ -24,6 +24,7 @@
 // SOFTWARE.
 //
 
+import CrystalViewUtilities
 import CUISeparator
 import SwiftUI
 
@@ -199,7 +200,7 @@ public struct CUIExpandableButton<Icon, Content>: CUIStylizedWindow where Icon: 
 
     let icon: Icon
     let content: Content
-    let action: Action?
+    let action: CUIAction?
 
     // MARK: Modifier Vars
 
@@ -297,10 +298,10 @@ public struct CUIExpandableButton<Icon, Content>: CUIStylizedWindow where Icon: 
     // MARK: Scaled Metrics
 
     @ScaledMetric(relativeTo: .title)
-    var minIconSize: CGFloat = .icon
+    var minIconSize: CGFloat = .minInteractiveLength
 
     @ScaledMetric(relativeTo: .title)
-    var menuCornerRadius: CGFloat = .menuCornerRadius
+    var menuCornerRadius: CGFloat = .cornerRadius
 
     // MARK: Calculated Vars
 
@@ -363,7 +364,7 @@ public struct CUIExpandableButton<Icon, Content>: CUIStylizedWindow where Icon: 
         expanded: Binding<Bool>,
         @ViewBuilder icon: () -> Icon,
         @ViewBuilder content: () -> Content,
-        action: Action? = nil
+        action: CUIAction? = nil
     ) {
         _expanded = expanded
         self.icon = icon()
@@ -415,7 +416,7 @@ public struct CUIExpandableButton<Icon, Content>: CUIStylizedWindow where Icon: 
                 // This animation looks delayed in previews, but works fine in the simulator
                 if expanded {
                     if !hideIcon {
-                        ChildSizeReader(
+                        CUISizeReader(
                             size: $iconSize,
                             id: id
                         ) {
@@ -423,7 +424,7 @@ public struct CUIExpandableButton<Icon, Content>: CUIStylizedWindow where Icon: 
                         }
                     }
                 } else {
-                    ChildSizeReader(
+                    CUISizeReader(
                         size: $iconSize,
                         id: id
                     ) {
@@ -547,7 +548,7 @@ public extension CUIExpandableButton where Icon == CUISFSymbolIcon {
         expanded: Binding<Bool>,
         sfSymbolName: String,
         @ViewBuilder content: () -> Content,
-        action: Action? = nil
+        action: CUIAction? = nil
     ) {
         self.init(
             expanded: expanded,
