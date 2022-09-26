@@ -13,6 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
     - name: Clean
       run: xcodebuild clean -scheme $SCHEME -destination "$DESTINATION"
       env:
@@ -26,6 +29,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: latest-stable
     - name: Clean Build
       run: xcodebuild build -scheme $SCHEME -destination "$DESTINATION"
       env:
