@@ -15,16 +15,16 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
-            from: "1.9.0"
-        ),
-        .package(
             url: "https://github.com/robhasacamera/CUISeparator.git",
             from: "0.3.1"
         ),
         .package(
             url: "https://github.com/robhasacamera/CrystalViewUtilities.git",
             from: "0.0.2"
+        ),
+        .package(
+            url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
+            from: "1.9.0"
         )
     ],
     targets: [
