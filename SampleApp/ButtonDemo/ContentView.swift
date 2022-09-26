@@ -25,6 +25,7 @@
 //
 
 import CrystalButtonKit
+import CrystalViewUtilities
 import CUISeparator
 import SwiftUI
 
@@ -356,17 +357,6 @@ struct ContentView: View {
         .animation(.easeInOut, value: hideHeader)
         .animation(.easeInOut, value: backgroundColor)
         .animation(.easeInOut, value: foregroundColor)
-    }
-}
-
-extension Image {
-    func centered() -> some View {
-        GeometryReader { geo in
-            self
-                .resizable()
-                .scaledToFill()
-                .frame(width: geo.size.width, height: geo.size.height)
-        }
     }
 }
 

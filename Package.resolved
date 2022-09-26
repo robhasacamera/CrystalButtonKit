@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "CrystalViewUtilities",
+        "repositoryURL": "https://github.com/robhasacamera/CrystalViewUtilities.git",
+        "state": {
+          "branch": null,
+          "revision": "eb11c338e091ded76f425336d227911c1ea30e8d",
+          "version": "0.0.1"
+        }
+      },
+      {
         "package": "CUIPreviewKit",
         "repositoryURL": "https://github.com/robhasacamera/CUIPreviewKit.git",
         "state": {

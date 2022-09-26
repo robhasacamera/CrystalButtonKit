@@ -24,6 +24,7 @@
 // SOFTWARE.
 //
 
+import CrystalViewUtilities
 import CUIPreviewKit
 import SwiftUI
 
@@ -81,7 +82,7 @@ public struct CUIButton<Icon>: _CUIStylizedControl where Icon: View {
     ///   - action: Action that will be performed when tapping the button.
     public init(
         @ViewBuilder icon: () -> Icon,
-        action: @escaping Action
+        action: @escaping CUIAction
     ) {
         control = CUIExpandableButton(
             expanded: .constant(false),
@@ -105,7 +106,7 @@ public extension CUIButton where Icon == CUISFSymbolIcon {
     ///   - action: Action that will be performed when tapping the button.
     init(
         sfSymbolName: String,
-        action: @escaping Action
+        action: @escaping CUIAction
     ) {
         control = CUIExpandableButton(expanded: .constant(false), sfSymbolName: sfSymbolName, content: {
             EmptyView()
@@ -126,7 +127,7 @@ public extension CUIButton where Icon == EmptyView {
     ///   - action: Action that will be performed when tapping the button.
     init(
         title: String,
-        action: @escaping Action
+        action: @escaping CUIAction
     ) {
         control = CUIExpandableButton(
             expanded: .constant(false),

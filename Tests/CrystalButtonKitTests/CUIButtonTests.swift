@@ -25,6 +25,7 @@
 //
 
 @testable import CrystalButtonKit
+import CrystalViewUtilities
 import SnapshotTesting
 import SwiftUI
 import XCTest
@@ -170,7 +171,7 @@ final class CUIButtonTests: XCTestCase {
         // isRecording = true
         assertSampledDynamicSizeSnapshots {
             CUIButton{
-                mockCustomSizeIcon(width: .icon * 2, height: .icon)
+                mockCustomSizeIcon(width: .minInteractiveLength * 2, height: .minInteractiveLength)
             } action: {
                 /* action */
             }
@@ -182,7 +183,7 @@ final class CUIButtonTests: XCTestCase {
         // isRecording = true
         assertSampledDynamicSizeSnapshots {
             CUIButton{
-                mockCustomSizeIcon(width: .icon, height: .icon * 2)
+                mockCustomSizeIcon(width: .minInteractiveLength, height: .minInteractiveLength * 2)
             } action: {
                 /* action */
             }
@@ -194,7 +195,7 @@ final class CUIButtonTests: XCTestCase {
         // isRecording = true
         assertSampledDynamicSizeSnapshots {
             CUIButton{
-                mockCustomSizeIcon(width: .icon * 2, height: .icon * 2)
+                mockCustomSizeIcon(width: .minInteractiveLength * 2, height: .minInteractiveLength * 2)
             } action: {
                 /* action */
             }

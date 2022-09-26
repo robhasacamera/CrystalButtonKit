@@ -24,13 +24,14 @@
 // SOFTWARE.
 //
 
+import CrystalViewUtilities
 import CUIPreviewKit
 import SwiftUI
 
-struct CloseButton: CUIView {
+struct CloseButton: View {
     @ScaledMetric(relativeTo: .title)
-    var size: CGFloat = .icon
-    let action: Action
+    var size: CGFloat = .minInteractiveLength
+    let action: CUIAction
 
     var body: some View {
         Button(action: action) {
