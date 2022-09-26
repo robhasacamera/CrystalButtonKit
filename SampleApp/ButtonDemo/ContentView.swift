@@ -92,249 +92,269 @@ struct ContentView: View {
         expanded1 || expanded2 || expanded3
     }
 
-    var body: some View {
+    var alertButtons: some View {
         VStack(spacing: 8.0) {
-            HStack(alignment: .top) {
-                if !isTopButtonExpanded {
-                    VStack(spacing: 8.0) {
-                        Text("CUIButton")
+            Text("CUIButton")
 
-                        HStack {
-                            CUIButton(sfSymbolName: "doc.fill.badge.plus") {
-                                showAlert1 = true
-                            }
-                            .alert("New doc button pressed", isPresented: $showAlert1) {
-                                Button("OK", role: .cancel) {}
-                            }
-
-                            CUIButton {
-                                ZStack {
-                                    Circle()
-                                        .foregroundColor(.red)
-                                        .frame(width: 30, height: 30)
-
-                                    Circle()
-                                        .foregroundColor(.white)
-                                        .frame(width: 20, height: 20)
-
-                                    Circle()
-                                        .foregroundColor(.red)
-                                        .frame(width: 10, height: 10)
-                                }
-                            } action: {
-                                showAlert2 = true
-                            }
-                            .alert("Target button pressed", isPresented: $showAlert2) {
-                                Button("OK", role: .cancel) {}
-                            }
-                        }
-                    }
-
-                    CUISeparator(weight: .heavy, orientation: .vertical)
+            HStack {
+                CUIButton(sfSymbolName: "doc.fill.badge.plus") {
+                    showAlert1 = true
+                }
+                .alert("New doc button pressed", isPresented: $showAlert1) {
+                    Button("OK", role: .cancel) {}
                 }
 
-                VStack {
-                    if !isTopButtonExpanded {
-                        Text("CUIExpandableButton")
+                CUIButton {
+                    ZStack {
+                        Circle()
+                            .foregroundColor(.red)
+                            .frame(width: 30, height: 30)
+
+                        Circle()
+                            .foregroundColor(.white)
+                            .frame(width: 20, height: 20)
+
+                        Circle()
+                            .foregroundColor(.red)
+                            .frame(width: 10, height: 10)
                     }
-
-                    HStack(alignment: .top) {
-                        CUIExpandableButton(
-                            expanded: $expanded1,
-                            sfSymbolName: "pencil"
-                        ) {
-                            TextEditor(text: $textFieldString)
-                                .frame(width: 200, height: 100)
-                        } action: {
-                            expanded2 = false
-                            expanded3 = false
-                            expanded4 = false
-                        }
-
-                        CUIExpandableButton(
-                            expanded: $expanded2,
-                            sfSymbolName: "gearshape.fill"
-                        ) {
-                            VStack {
-                                Toggle("Setting 1", isOn: $toggleBool1)
-                                Toggle("Setting 2", isOn: $toggleBool2)
-                                Toggle("Setting 3", isOn: $toggleBool3)
-                            }
-                            .frame(width: 200)
-                            .padding(8)
-
-                        } action: {
-                            expanded1 = false
-                            expanded3 = false
-                            expanded4 = false
-                        }
-
-                        CUIExpandableButton(
-                            expanded: $expanded3
-                        ) {
-                            Image("Background")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 26, height: 26)
-                        } content: {
-                            Image("Background")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 100, height: 100)
-                                .padding(8)
-                        } action: {
-                            expanded1 = false
-                            expanded2 = false
-                            expanded4 = false
-                        }
-                    }
+                } action: {
+                    showAlert2 = true
+                }
+                .alert("Target button pressed", isPresented: $showAlert2) {
+                    Button("OK", role: .cancel) {}
                 }
             }
-            .padding(isTopButtonExpanded ? 0.0 : 8.0)
-            .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .foregroundColor(
-                        .white.opacity(isTopButtonExpanded ? 0.0 : 0.4)
-                    )
-            )
-            .frame(height: isTopButtonExpanded ? nil : 100.0)
+        }
+    }
 
-            Spacer()
+    var topExpandingButtons: some View {
+        HStack(alignment: .top) {
+            CUIExpandableButton(
+                expanded: $expanded1,
+                sfSymbolName: "pencil"
+            ) {
+                TextEditor(text: $textFieldString)
+                    .frame(width: 200, height: 100)
+            } action: {
+                expanded2 = false
+                expanded3 = false
+                expanded4 = false
+            }
 
             CUIExpandableButton(
-                expanded: $expanded4,
-                sfSymbolName: sfSymbolName
+                expanded: $expanded2,
+                sfSymbolName: "gearshape.fill"
             ) {
-                Text(content)
-                    .frame(width: 200)
+                VStack {
+                    Toggle("Setting 1", isOn: $toggleBool1)
+                    Toggle("Setting 2", isOn: $toggleBool2)
+                    Toggle("Setting 3", isOn: $toggleBool3)
+                }
+                .frame(width: 200)
+                .padding(8)
+
+            } action: {
+                expanded1 = false
+                expanded3 = false
+                expanded4 = false
+            }
+
+            CUIExpandableButton(
+                expanded: $expanded3
+            ) {
+                Image("Background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 26, height: 26)
+            } content: {
+                Image("Background")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
                     .padding(8)
-                    .foregroundColor(nil)
             } action: {
                 expanded1 = false
                 expanded2 = false
-                expanded3 = false
+                expanded4 = false
             }
-            .hideIcon(hideIcon)
-            .title(
-                title.count > 0 ? title : nil,
-                font: titleFont
-            )
-            .subtitle(
-                subtitle.count > 0 ? subtitle : nil,
-                font: subtitleFont
-            )
-            .hideCloseButton(hideCloseButton)
-            .hideSeparator(hideSeparator)
-            .hideHeader(hideHeader)
-            .hideBackground(hideBackground)
-            .backgroundColor(backgroundColor)
-            .foregroundColor(foregroundColor)
+        }
+    }
+
+    var topButtons: some View {
+        HStack(alignment: .top) {
+            if !isTopButtonExpanded {
+                alertButtons
+
+                CUISeparator(weight: .heavy, orientation: .vertical)
+            }
+
+            VStack {
+                if !isTopButtonExpanded {
+                    Text("CUIExpandableButton")
+                }
+
+                topExpandingButtons
+            }
+        }
+        .padding(isTopButtonExpanded ? 0.0 : 8.0)
+        .background(
+            RoundedRectangle(cornerRadius: 15)
+                .foregroundColor(
+                    .white.opacity(isTopButtonExpanded ? 0.0 : 0.4)
+                )
+        )
+        .frame(height: isTopButtonExpanded ? nil : 100.0)
+    }
+
+    var demoExpandableButton: some View {
+        CUIExpandableButton(
+            expanded: $expanded4,
+            sfSymbolName: sfSymbolName
+        ) {
+            Text(content)
+                .frame(width: 200)
+                .padding(8)
+                .foregroundColor(nil)
+        } action: {
+            expanded1 = false
+            expanded2 = false
+            expanded3 = false
+        }
+        .hideIcon(hideIcon)
+        .title(
+            title.count > 0 ? title : nil,
+            font: titleFont
+        )
+        .subtitle(
+            subtitle.count > 0 ? subtitle : nil,
+            font: subtitleFont
+        )
+        .hideCloseButton(hideCloseButton)
+        .hideSeparator(hideSeparator)
+        .hideHeader(hideHeader)
+        .hideBackground(hideBackground)
+        .backgroundColor(backgroundColor)
+        .foregroundColor(foregroundColor)
+    }
+
+    var demoOptions: some View {
+        ScrollView {
+            VStack {
+                TitledGroup("Settings") {
+                    Toggle("Expanded", isOn: $expanded4)
+                }
+
+                TitledGroup("Title") {
+                    VStack {
+                        TextField("Title", text: $title)
+                            .padding(4)
+                            .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white.opacity(0.5)))
+
+                        FontPicker(label: "Title Font", font: $titleFont)
+                    }
+                }
+
+                TitledGroup("Subtitle") {
+                    VStack {
+                        TextField("Subtitle", text: $subtitle)
+                            .padding(4)
+                            .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white.opacity(0.5)))
+
+                        FontPicker(label: "Subtitle Font", font: $subtitleFont)
+                    }
+                }
+
+                TitledGroup("Content") {
+                    TextField("Content", text: $content)
+                        .padding(4)
+                        .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white.opacity(0.5)))
+                }
+
+                TitledGroup("Icon") {
+                    HStack {
+                        Text("Icon Symbol")
+
+                        Spacer()
+
+                        Picker(
+                            "Icon",
+                            selection: $sfSymbolName
+                        ) {
+                            Group {
+                                Text("bag.fill").tag("bag.fill")
+                                Text("bell.fill").tag("bell.fill")
+                                Text("cart.fill").tag("cart.fill")
+                                Text("bookmark.fill").tag("bookmark.fill")
+                                Text("doc.fill").tag("doc.fill")
+                                Text("envelope.fill").tag("envelope.fill")
+                                Text("exclamationmark.triangle.fill").tag("exclamationmark.triangle.fill")
+                                Text("gearshape.fill").tag("gearshape.fill")
+                            }
+
+                            Group {
+                                Text("list.triangle").tag("list.triangle")
+                                Text("mappin").tag("mappin")
+                                Text("note.text").tag("note.text")
+                                Text("paperclip").tag("paperclip")
+                                Text("paintbrush.pointed.fill").tag("paintbrush.pointed.fill")
+                                Text("person.fill").tag("person.fill")
+                                Text("printer.fill").tag("printer.fill")
+                                Text("square.and.arrow.up").tag("square.and.arrow.up")
+                            }
+
+                            Group {
+                                Text("star.fill").tag("star.fill")
+                                Text("sun.max.fill").tag("sun.max.fill")
+                                Text("terminal.fill").tag("terminal.fill")
+                                Text("text.bubble.fill").tag("text.bubble.fill")
+                                Text("waveform.path.ecg").tag("waveform.path.ecg")
+                            }
+                        }
+                    }
+
+                    Toggle("Hide Icon", isOn: $hideIcon)
+                }
+
+                TitledGroup("Header Only Options") {
+                    VStack {
+                        Toggle("Hide Header", isOn: $hideHeader)
+
+                        Toggle("Hide Close Button", isOn: $hideCloseButton)
+
+                        Toggle("Hide Separator", isOn: $hideSeparator)
+                    }
+                }
+
+                TitledGroup("Show/Hide Background") {
+                    Toggle("Hide Background", isOn: $hideBackground)
+                }
+
+                TitledGroup("Background Color") {
+                    ColorPicker("Background Color", selection: $backgroundColor)
+                }
+
+                TitledGroup("Foreground Color") {
+                    ColorPicker("Foreground Color", selection: $foregroundColor)
+                }
+            }
+            .padding()
+        }
+        .background(.ultraThinMaterial)
+        .frame(height: 348)
+    }
+
+    var body: some View {
+        VStack(spacing: 8.0) {
+            topButtons
 
             Spacer()
 
-            ScrollView {
-                VStack {
-                    TitledGroup("Settings") {
-                        Toggle("Expanded", isOn: $expanded4)
-                    }
+            demoExpandableButton
 
-                    TitledGroup("Title") {
-                        VStack {
-                            TextField("Title", text: $title)
-                                .padding(4)
-                                .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white.opacity(0.5)))
+            Spacer()
 
-                            FontPicker(label: "Title Font", font: $titleFont)
-                        }
-                    }
-
-                    TitledGroup("Subtitle") {
-                        VStack {
-                            TextField("Subtitle", text: $subtitle)
-                                .padding(4)
-                                .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white.opacity(0.5)))
-
-                            FontPicker(label: "Subtitle Font", font: $subtitleFont)
-                        }
-                    }
-
-                    TitledGroup("Content") {
-                        TextField("Content", text: $content)
-                            .padding(4)
-                            .background(RoundedRectangle(cornerRadius: 4).foregroundColor(.white.opacity(0.5)))
-                    }
-
-                    TitledGroup("Icon") {
-                        HStack {
-                            Text("Icon Symbol")
-
-                            Spacer()
-
-                            Picker(
-                                "Icon",
-                                selection: $sfSymbolName
-                            ) {
-                                Group {
-                                    Text("bag.fill").tag("bag.fill")
-                                    Text("bell.fill").tag("bell.fill")
-                                    Text("cart.fill").tag("cart.fill")
-                                    Text("bookmark.fill").tag("bookmark.fill")
-                                    Text("doc.fill").tag("doc.fill")
-                                    Text("envelope.fill").tag("envelope.fill")
-                                    Text("exclamationmark.triangle.fill").tag("exclamationmark.triangle.fill")
-                                    Text("gearshape.fill").tag("gearshape.fill")
-                                }
-
-                                Group {
-                                    Text("list.triangle").tag("list.triangle")
-                                    Text("mappin").tag("mappin")
-                                    Text("note.text").tag("note.text")
-                                    Text("paperclip").tag("paperclip")
-                                    Text("paintbrush.pointed.fill").tag("paintbrush.pointed.fill")
-                                    Text("person.fill").tag("person.fill")
-                                    Text("printer.fill").tag("printer.fill")
-                                    Text("square.and.arrow.up").tag("square.and.arrow.up")
-                                }
-
-                                Group {
-                                    Text("star.fill").tag("star.fill")
-                                    Text("sun.max.fill").tag("sun.max.fill")
-                                    Text("terminal.fill").tag("terminal.fill")
-                                    Text("text.bubble.fill").tag("text.bubble.fill")
-                                    Text("waveform.path.ecg").tag("waveform.path.ecg")
-                                }
-                            }
-                        }
-
-                        Toggle("Hide Icon", isOn: $hideIcon)
-                    }
-
-                    TitledGroup("Header Only Options") {
-                        VStack {
-                            Toggle("Hide Header", isOn: $hideHeader)
-
-                            Toggle("Hide Close Button", isOn: $hideCloseButton)
-
-                            Toggle("Hide Separator", isOn: $hideSeparator)
-                        }
-                    }
-
-                    TitledGroup("Show/Hide Background") {
-                        Toggle("Hide Background", isOn: $hideBackground)
-                    }
-
-                    TitledGroup("Background Color") {
-                        ColorPicker("Background Color", selection: $backgroundColor)
-                    }
-
-                    TitledGroup("Foreground Color") {
-                        ColorPicker("Foreground Color", selection: $foregroundColor)
-                    }
-                }
-                .padding()
-            }
-            .background(.ultraThinMaterial)
-            .frame(height: 348)
+            demoOptions
         }
         .background(alignment: .center) {
             Image("Background")

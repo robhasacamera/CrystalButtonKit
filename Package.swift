@@ -24,7 +24,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/robhasacamera/CrystalViewUtilities.git",
-            from: "0.0.1"
+            from: "0.0.2"
         )
     ],
     targets: [
