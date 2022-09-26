@@ -614,7 +614,7 @@ struct CUIExpandableButtonPreview_Modifiers: View {
                     }
                 }
 
-                #if swift(>=5.7)
+                #if swift(>=5.7) && os(iOS)
                     if #available(iOS 16.0, *) {
                         CUICaptionedView(".fontWeight(.bold)") {
                             HStack {
