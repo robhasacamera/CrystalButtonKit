@@ -24,7 +24,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
-            from: "1.9.0"
+            from: "1.11.0"
         ),
     ],
     targets: [
