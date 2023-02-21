@@ -20,7 +20,7 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/robhasacamera/CrystalViewUtilities.git",
-            from: "0.3.1"
+            from: "0.11.0"
         ),
         .package(
             url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
