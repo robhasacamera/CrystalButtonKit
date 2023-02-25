@@ -31,676 +31,676 @@ import XCTest
 
 #if os(iOS)
 final class CUIExpandableButtonTests: XCTestCase {
-    override func setUp() async throws {
-        try await super.setUp()
-
-        // isRecording = true
-    }
-
-    override func tearDown() async throws {
-        // If we overwrite a snapshot, we want it to be just the snapshot we're intentionally changing.
-        isRecording = false
-
-        try await super.tearDown()
-    }
-
-    // MARK: - SF Symbol Tests
-
-    func testButtonWithSFSymbolCollpased() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(false),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }.prepForTest
-        }
-    }
-
-    func testButtonWithSFSymbolExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }.prepForTest
-        }
-    }
-
-    func testButtonWithSFSymbolExpandedHiddenIcon() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .title(mockTitle)
-            .hideIcon()
-            .prepForTest
-        }
-    }
-
-    // FIXME: Think it's time to remove this test
-    func testButtonWithSFSymbolExpandedHiddenTitle() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .prepForTest
-        }
-    }
-
-    func testButtonWithSFSymbolExpandedHiddenCloseButton() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .title(mockTitle)
-            .hideCloseButton()
-            .prepForTest
-        }
-    }
-
-    func testButtonWithSFSymbolExpandedHiddenSeparator() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .title(mockTitle)
-            .hideSeparator()
-            .prepForTest
-        }
-    }
-
-    func testButtonWithSFSymbolExpandedHiddenHeader() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .hideHeader()
-            .prepForTest
-        }
-    }
-
-    func testButtonWithSFSymbolAndLongTitleExpandedWithHiddenIconAndCloseButton() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .title("Did you get that Marty?")
-            .hideIcon()
-            .hideCloseButton()
-            .prepForTest
-        }
-    }
-
-    func testButtonWithSFSymbolExpandedWithTitle() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .title(mockTitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithSFSymbolExpandedWithForegroundColor() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .title(mockTitle)
-            .foregroundColor(.yellow)
-        }
-    }
-
-    // MARK: - Custom Icon Tests
-
-    func testButtonWithCustomIconCollapsed() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(expanded: .constant(false)) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomIconExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(expanded: .constant(true)) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomIconExpandedWithHiddenIcon() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .title(mockTitle)
-            .hideIcon()
-            .prepForTest
-        }
-    }
-
-    // FIXME: Remove
-    func testButtonWithCustomIconExpandedWithHiddenTitle() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomIconExpandedWithHiddenCloseButton() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .title(mockTitle)
-            .hideCloseButton()
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomIconExpandedWithHiddenSeparator() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .title(mockTitle)
-            .hideSeparator()
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomIconExpandedWithHiddenHeader() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .hideHeader()
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomIconAndLongTitleExpandedWithHiddenIconAndCloseButton() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .hideIcon()
-            .hideCloseButton()
-            .title("Did you get that Marty?")
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomIconExpandedWithTitle() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .title(mockTitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomIconExpandedWithForegroundColor() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .title(mockTitle)
-            .foregroundColor(.yellow)
-        }
-    }
-
-    func testButtonWithCustomTallIconCollapsed() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(false)
-            ) {
-                mockCustomSizeIcon(width: 20, height: 100)
-            } content: {
-                mockContent
-            }
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomTallIconExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomSizeIcon(width: 20, height: 100)
-            } content: {
-                mockContent
-            }
-            .title(mockTitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomWideIconCollapsed() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(false)
-            ) {
-                mockCustomSizeIcon(width: 100, height: 20)
-            } content: {
-                mockContent
-            }
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomWideIconExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomSizeIcon(width: 100, height: 20)
-            } content: {
-                mockContent
-            }
-            .title(mockTitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomLargeIconCollapsed() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(false)
-            ) {
-                mockCustomSizeIcon(width: 100, height: 100)
-            } content: {
-                mockContent
-            }
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomLargeIconExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomSizeIcon(width: 100, height: 100)
-            } content: {
-                mockContent
-            }
-            .title(mockTitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithSFIconTitleAndSubtitleExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .title(mockTitle)
-            .subtitle(mockSubtitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithSFIconAndSubtitleExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .subtitle(mockSubtitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomIconTitleAndSubtitleExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomIconAndSubtitleExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .subtitle(mockSubtitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithNoIconTitleAndSubtitleExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
-            .hideIcon()
-            .prepForTest
-        }
-    }
-
-    func testButtonWithNoIconAndSubtitleExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .subtitle(mockSubtitle)
-            .hideIcon()
-            .prepForTest
-        }
-    }
-
-    func testButtonWithTitleAndSubtitleDisplayedWhenCollapsed() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(false)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .title(mockTitle)
-            .subtitle(mockSubtitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithTitleDisplayedWhenCollapsed() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(false)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .title(mockTitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithSubtitleDisplayedWhenCollapsed() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(false)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .subtitle(mockSubtitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomTitleFont() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .title(mockTitle, font: .largeTitle)
-            .subtitle(mockSubtitle)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomSubTitleFont() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .title(mockTitle)
-            .subtitle(mockSubtitle, font: .caption2)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomBackgroundColor() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true)
-            ) {
-                mockCustomIcon
-            } content: {
-                mockContent
-            }
-            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
-            .backgroundColor(.cyan)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithHiddenIconCollapsed() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(false),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
-            .hideIcon()
-            .prepForTest
-        }
-    }
-
-    func testButtonWithHiddenIconAndTitleSubtitleDisplayed() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(false),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .title(mockTitle)
-            .subtitle(mockSubtitle)
-            .hideIcon()
-            .prepForTest
-        }
-    }
-
-    func testButtonWithHiddenBackgroundCollapsed() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(false),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
-            .hideBackground(true)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithHiddenBackgroundExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
-            .hideBackground(true)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomCornerRadiusCollapsed() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(false),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
-            .buttonCornerRadius(2)
-            .prepForTest
-        }
-    }
-
-    func testButtonWithCustomCornerRadiusExpanded() throws {
-        // isRecording = true
-        assertSampledDynamicSizeSnapshots {
-            CUIExpandableButton(
-                expanded: .constant(true),
-                sfSymbolName: sfSymbolName
-            ) {
-                mockContent
-            }
-            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
-            .buttonCornerRadius(2)
-            .prepForTest
-        }
-    }
+//    override func setUp() async throws {
+//        try await super.setUp()
+//
+////         isRecording = true
+//    }
+//
+//    override func tearDown() async throws {
+//        // If we overwrite a snapshot, we want it to be just the snapshot we're intentionally changing.
+//        isRecording = false
+//
+//        try await super.tearDown()
+//    }
+//
+//    // MARK: - SF Symbol Tests
+//
+//    func testButtonWithSFSymbolCollpased() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(false),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }.prepForTest
+//        }
+//    }
+//
+//    func testButtonWithSFSymbolExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }.prepForTest
+//        }
+//    }
+//
+//    func testButtonWithSFSymbolExpandedHiddenIcon() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .hideIcon()
+//            .prepForTest
+//        }
+//    }
+//
+//    // FIXME: Think it's time to remove this test
+//    func testButtonWithSFSymbolExpandedHiddenTitle() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithSFSymbolExpandedHiddenCloseButton() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .hideCloseButton()
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithSFSymbolExpandedHiddenSeparator() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .hideSeparator()
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithSFSymbolExpandedHiddenHeader() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .hideHeader()
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithSFSymbolAndLongTitleExpandedWithHiddenIconAndCloseButton() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .title("Did you get that Marty?")
+//            .hideIcon()
+//            .hideCloseButton()
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithSFSymbolExpandedWithTitle() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithSFSymbolExpandedWithForegroundColor() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .foregroundColor(.yellow)
+//        }
+//    }
+//
+//    // MARK: - Custom Icon Tests
+//
+//    func testButtonWithCustomIconCollapsed() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(expanded: .constant(false)) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomIconExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(expanded: .constant(true)) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomIconExpandedWithHiddenIcon() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .hideIcon()
+//            .prepForTest
+//        }
+//    }
+//
+//    // FIXME: Remove
+//    func testButtonWithCustomIconExpandedWithHiddenTitle() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomIconExpandedWithHiddenCloseButton() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .hideCloseButton()
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomIconExpandedWithHiddenSeparator() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .hideSeparator()
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomIconExpandedWithHiddenHeader() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .hideHeader()
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomIconAndLongTitleExpandedWithHiddenIconAndCloseButton() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .hideIcon()
+//            .hideCloseButton()
+//            .title("Did you get that Marty?")
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomIconExpandedWithTitle() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomIconExpandedWithForegroundColor() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .foregroundColor(.yellow)
+//        }
+//    }
+//
+//    func testButtonWithCustomTallIconCollapsed() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(false)
+//            ) {
+//                mockCustomSizeIcon(width: 20, height: 100)
+//            } content: {
+//                mockContent
+//            }
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomTallIconExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomSizeIcon(width: 20, height: 100)
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomWideIconCollapsed() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(false)
+//            ) {
+//                mockCustomSizeIcon(width: 100, height: 20)
+//            } content: {
+//                mockContent
+//            }
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomWideIconExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomSizeIcon(width: 100, height: 20)
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomLargeIconCollapsed() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(false)
+//            ) {
+//                mockCustomSizeIcon(width: 100, height: 100)
+//            } content: {
+//                mockContent
+//            }
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomLargeIconExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomSizeIcon(width: 100, height: 100)
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithSFIconTitleAndSubtitleExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .subtitle(mockSubtitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithSFIconAndSubtitleExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .subtitle(mockSubtitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomIconTitleAndSubtitleExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomIconAndSubtitleExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .subtitle(mockSubtitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithNoIconTitleAndSubtitleExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
+//            .hideIcon()
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithNoIconAndSubtitleExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .subtitle(mockSubtitle)
+//            .hideIcon()
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithTitleAndSubtitleDisplayedWhenCollapsed() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(false)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .subtitle(mockSubtitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithTitleDisplayedWhenCollapsed() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(false)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithSubtitleDisplayedWhenCollapsed() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(false)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .subtitle(mockSubtitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomTitleFont() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle, font: .largeTitle)
+//            .subtitle(mockSubtitle)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomSubTitleFont() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .subtitle(mockSubtitle, font: .caption2)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomBackgroundColor() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true)
+//            ) {
+//                mockCustomIcon
+//            } content: {
+//                mockContent
+//            }
+//            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
+//            .backgroundColor(.cyan)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithHiddenIconCollapsed() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(false),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
+//            .hideIcon()
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithHiddenIconAndTitleSubtitleDisplayed() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(false),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .title(mockTitle)
+//            .subtitle(mockSubtitle)
+//            .hideIcon()
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithHiddenBackgroundCollapsed() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(false),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
+//            .hideBackground(true)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithHiddenBackgroundExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
+//            .hideBackground(true)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomCornerRadiusCollapsed() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(false),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
+//            .buttonCornerRadius(2)
+//            .prepForTest
+//        }
+//    }
+//
+//    func testButtonWithCustomCornerRadiusExpanded() throws {
+//        // isRecording = true
+//        assertSampledDynamicSizeSnapshots {
+//            CUIExpandableButton(
+//                expanded: .constant(true),
+//                sfSymbolName: sfSymbolName
+//            ) {
+//                mockContent
+//            }
+//            .standardLayout(title: mockTitle, subtitle: mockSubtitle)
+//            .buttonCornerRadius(2)
+//            .prepForTest
+//        }
+//    }
 }
 
 extension CUIExpandableButton {

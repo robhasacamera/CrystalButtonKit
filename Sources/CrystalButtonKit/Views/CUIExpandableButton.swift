@@ -416,7 +416,7 @@ public struct CUIExpandableButton<Icon, Content>: CUIStylizedWindow where Icon: 
                 // This animation looks delayed in previews, but works fine in the simulator
                 if expanded {
                     if !hideIcon {
-                        CUISizeReader(
+                        CUIChildSizeReader(
                             size: $iconSize,
                             id: id
                         ) {
@@ -424,7 +424,7 @@ public struct CUIExpandableButton<Icon, Content>: CUIStylizedWindow where Icon: 
                         }
                     }
                 } else {
-                    CUISizeReader(
+                    CUIChildSizeReader(
                         size: $iconSize,
                         id: id
                     ) {
